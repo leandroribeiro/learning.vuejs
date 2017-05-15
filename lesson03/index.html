@@ -40,13 +40,15 @@
             </button>
         </form>
 
-        <form >
+        <form>
             <button type="submit" @click="updateCount">
                 Increment Counter: {{ count }}
             </button>
         </form>
 
     </div>
+
+    <h5>All the power by <a href="https://laracasts.com/series/learning-vue-step-by-step">https://laracasts.com/series/learning-vue-step-by-step</a></h5>
 
     <script src="../node_modules/vue/dist/vue.js"></script>
     <script>
@@ -59,11 +61,11 @@
                 handleIt: function () {
                     alert('Handled');
                 },
-                handleItAndPrevent: function(e){
+                handleItAndPrevent: function (e) {
                     alert('Handled and Prevent');
                     e.preventDefault();
                 },
-                updateCount: function(){
+                updateCount: function () {
                     this.count += 1;
                 }
             }
