@@ -1,44 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-
 <body>
+    
     <div id="app">
-        <form>
-
-            <span class="error" v-if="!message">
-                You must enter a message 1
-            </span>
-
-            <textarea cols="30" rows="10" v-model="message"></textarea>
-
-            <button type="submit" v-show="message">
-                Send Message
-            </button>
-        </form>
-
+        <h1>{{ message }}</h1>
+        <input v-model="message">        
         <pre>
             {{ $data | json}}
         </pre>
     </div>
 
     <h5>All the power by <a href="https://laracasts.com/series/learning-vue-step-by-step">https://laracasts.com/series/learning-vue-step-by-step</a></h5>
-    
-    <script src="../node_modules/vue/dist/vue.js"></script>
+
+    <script src="../../node_modules/vue/dist/vue.js"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                message: ''
+                message: 'Hello World'
             }
         });
     </script>
 </body>
-
 </html>
