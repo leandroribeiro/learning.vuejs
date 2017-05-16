@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-for="plan in plans">
+            <plan :plan="plan"></plan>
+        </div>
+    </div>
+
+    <template id="plan-template">
+        <div>
+            <span>{{ plan.name }}</span>
+            <span>{{ plan.price }}/month</span>
+        </div>
+    </template>
+
+    <h5>All the power by <a href="https://laracasts.com/series/learning-vue-step-by-step">https://laracasts.com/series/learning-vue-step-by-step</a></h5>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.js" integrity="sha256-uZ4EDTJw1LV+sBeXsbqHz8+UYjwTXanpjnikoKeB4ow="
+        crossorigin="anonymous"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+
+            components: {
+                plan: {
+                    template: '#plan-template',
+
+                    props: ['plan']
+                }
+            },
+
+            data: {
+                plans:[
+                    { name: 'Enterprise', price: 100},
+                    { name: 'Pro', price: 50},
+                    { name: 'Personal', price: 10},
+                    { name: 'Free', price: 0}
+                ]
+            },
+
+
+        });
+    </script>
+</body>
+
+</html>
