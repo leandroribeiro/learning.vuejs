@@ -1,24 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <div id="app">
+        <counter subject="Likes"></counter>
+        <counter subject="DisLikes"></counter>
+    </div>
+
+    <template id="counter-template">
+        <h1>{{subject}}</h1>
+        <button @click="count += 1">{{ count }}</button>
+    </template>
+
+
     <h5>All the power by <a href="https://laracasts.com/series/learning-vue-step-by-step">https://laracasts.com/series/learning-vue-step-by-step</a></h5>
 
-    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.js" integrity="sha256-uZ4EDTJw1LV+sBeXsbqHz8+UYjwTXanpjnikoKeB4ow="
+        crossorigin="anonymous"></script>
     <script>
+        /*
+        Vue.component('counter', {
+            template: '#counter-template',
+            props: ['subject'],
+            data: function () {
+                return { count: 0 };
+            }
+        });
+        */
+
         new Vue({
             el: '#app',
-            data: {
-            },
-            methods: {
+
+            components: {
+                counter: {
+                    template: '#counter-template',
+
+                    props: ['subject'],
+                    
+                    data: function () {
+                        return { count: 0 };
+                    }
+                }
             }
         });
     </script>
+    <!-- https://cdnjs.com/libraries/vue/1.0.28 -->
 </body>
+
 </html>
