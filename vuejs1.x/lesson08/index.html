@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 08</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <tasks :list="tasks"></tasks>
+        <h4>Other inline list</h4>
+        <tasks :list="[{body: 'do this', completed: false}]"></tasks>
+    </div>
+
+    <template id="tasks-template">
+        <h3>inline function</h3>
+        <ul>
+            <li 
+                v-for="task in list" 
+                :class="{ 'completed': task.completed }" 
+                @click="task.completed = ! task.completed"
+            >
+                {{ task.body }}
+            </li>
+        </ul>
+    </template>
+
+    <h5>All the power by <a href="https://laracasts.com/series/learning-vue-step-by-step">https://laracasts.com/series/learning-vue-step-by-step</a></h5>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.js" integrity="sha256-uZ4EDTJw1LV+sBeXsbqHz8+UYjwTXanpjnikoKeB4ow="
+        crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
