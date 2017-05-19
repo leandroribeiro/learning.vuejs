@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 09</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <tasks :list="tasks"></tasks>
+    </div>
+
+    <template id="tasks-template">
+        <h1>
+            My tasks
+            <span v-show="remaining">({{ remaining }})</span>
+        </h1>
+        <ul v-show="list.length">
+            <li v-for="task in list" :class="{ 'completed': task.completed }" @click="task.completed = ! task.completed">
+                {{ task.body }}
+                <strong @click="deleteTask(task)">X</strong>
+            </li>
+        </ul>
+
+        <span v-else>
+            Empty
+        </span>
+
+        <button @click="clearCompleted">Clear completed</button>
+    </template>
+
+    <h5>All the power by <a href="https://laracasts.com/series/learning-vue-step-by-step">https://laracasts.com/series/learning-vue-step-by-step</a></h5>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.js" integrity="sha256-uZ4EDTJw1LV+sBeXsbqHz8+UYjwTXanpjnikoKeB4ow="
+        crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
