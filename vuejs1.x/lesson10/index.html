@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <tasks></tasks>
+  </div>
+
+  <template id="tasks-template">
+    <h1>My Tasks</h1>
+
+    <ul class="list-group">
+      <li class="list-group-item" v-for="task in list">
+        {{ task.title }}
+
+        <strong @click="delete(task)">X</strong>
+      </li>
+    </ul>
+
+  </template>
+
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.8/vue.js"></script>
+  <script src="main.js"></script>
+
+</body>
+
+</html>
