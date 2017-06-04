@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lesson 11</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <tasks></tasks>
+  </div>
+
+  <template id="tasks-template">
+    <h1>My Tasks</h1>
+
+    <ul class="list-group">
+      <li class="list-group-item" v-for="task in list">
+        {{ task.title }}
+
+        <strong @click="deleteTask(task)">X</strong>
+      </li>
+    </ul>
+
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.8/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.min.js"></script>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
