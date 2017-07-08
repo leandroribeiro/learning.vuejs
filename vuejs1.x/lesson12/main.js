@@ -1,4 +1,5 @@
 Vue.component('alert', {
+
     template: '#alert-template',
 
     props: ['type'],
