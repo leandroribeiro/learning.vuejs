@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 14</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <h1>{{ 'hello world!' | uppercase }}</h1>
+
+    <h1>{{ 5 | currency 'R$' }}</h1>
+
+    <pre>{{ $data | jsonIt }}</pre>
+
+    <hr/>
+
+    <h3>Filter 1</h3>
+    <ul>
+        <li v-for="person in people | orderBy 'name' | limitBy 2">{{person.name}}</li>
+    </ul>
+    <h3>Filter 2</h3>
+    <ul>
+        <li v-for="person in people | role 'admin'">{{person.name}}</li>
+    </ul>
+
+
+    <h5>All the power by <a href="https://laracasts.com/series/learning-vue-step-by-step">https://laracasts.com/series/learning-vue-step-by-step</a></h5>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.min.js"></script>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
