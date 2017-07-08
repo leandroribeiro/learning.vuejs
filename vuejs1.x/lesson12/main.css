@@ -1,0 +1,24 @@
+.alert{
+    position: relative;
+    background: #ddd;
+    padding: 1em;
+    border: 1px solid darkgray;
+}
+
+.alert-success{
+    background : lightgreen;
+    border: 1px solid lightgreen;
+}
+
+.alert-error {
+    background : lightcoral;
+    border: 1px solid red;    
+}
+
+.alert-close{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 12</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <alert type="success">
+        <strong>Sucess!</strong>Your account has been updated.
+    </alert>
+
+    <alert type="error">
+        <strong>Error!</strong>Your account has been updated.
+    </alert>
+
+    <alert type="info">
+        <strong>Information!</strong>Your account has been updated.
+    </alert>
+
+    <template id="alert-template">
+        <div :class='alertClasses' v-show="show">
+            <slot></slot>
+            <span class="alert-close" @click="show = false">x</span>
+        </div>
+    </template>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.8/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.min.js"></script>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
