@@ -1,0 +1,15 @@
+div {
+    background: grey;
+    height: 50px;
+}
+
+.fade-transition{
+    transition: all .5s ease;
+}
+
+.fade-enter{
+    opacity: 0;
+}
+.fade-leave{
+    height: 200px;
+}
