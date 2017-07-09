@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root">
+    <ul>
+      <li v-for="name in names" v-text="name"></li>
+    </ul>
+
+    <input type="text" id="newName" v-model="newName">
+    <button type="button" id="btnAddNewName" v-on:click="addNew">Add Name</button>
+  </div>
+
+  <script src="https://unpkg.com/vue" charset="utf-8"></script>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#root',
+
+      data: {
+        newName: '',
+        names: ['Joe', 'Mary', 'Jane', 'Jack']
+      },
+
+      methods: {
+        addNew() {
+          this.names.push(this.newName);
+          this.newName = '';
+        }
+
+      },
+
+    });
+  </script>
+</body>
+
+</html>
