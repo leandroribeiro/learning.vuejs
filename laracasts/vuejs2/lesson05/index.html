@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lesson 5</title>
+
+  <style media="screen">
+    .color-red { color: red;}
+    .color-blue { color: blue;}
+
+    .is-loading { background-color: green;}
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <h3>{{ title }}</h3>
+
+    <button type="button" name="btn1" id="btn1" v-bind:title="title" v-bind:value="title"></button>
+
+    <hr/>
+
+    <button type="submit" id="btn2" :title="title" :text="title" :value="title"></button>
+
+    <hr/>
+
+    <h1 :class="className">Hello Wolrd</h1>
+
+    <button type="button" name="button" :class="{'is-loading': isLoading}" @click="toggleClass">Toggle Me</button>
+  </div>
+
+  <script src="https://unpkg.com/vue@2.1.3/dist/vue.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#root',
+
+      data: {
+        title: 'Title here!',
+
+        className: 'color-red',
+
+        isLoading: false
+      },
+
+      methods: {
+        toggleClass(){
+          this.isLoading = true;
+        }
+      }
+
+    });
+  </script>
+</body>
+
+</html>
