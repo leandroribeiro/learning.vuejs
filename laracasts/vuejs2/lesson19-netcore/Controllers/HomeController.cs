@@ -16,11 +16,17 @@ namespace lesson19_netcore.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(string name, string description)
+        public async Task<IActionResult> Store(string name, string description)
         {
             //validate
 
             //save on database
+            using (var db = new ProjectContext())
+            {
+                db.Blogs.Add(new Project { Name = name, Description = description });
+                var count = db.SaveChanges();
+                Console.WriteLine("{0} records saved to database", count);
+            }
 
             return Json(new { response = "Project Created!" });
             //return this.Ok(new { response = "Project Created!" });
