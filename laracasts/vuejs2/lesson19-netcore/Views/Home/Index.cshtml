@@ -19,19 +19,25 @@
         <!-- list all projects -->
 
 
-        <form method="POST" action="/Home/Store" v-on:submit.prevent="onSubmit">
+        <form method="POST" action="/Home/Store" v-on:submit.prevent="onSubmit" v-on:keydown="errors.clear($event.target.name)">
             <div class="control">
                 <label for="name" class="label">Project Name:</label>
-                <input type="text" id="name" name="name" class="input" v-model="name">
+                <input type="text" id="Name" name="Name" class="input" v-model="name" />
+                <!-- APPROACH 1 -->
+                <!-- <input type="text" id="name" name="name" class="input" v-model="name" v-on:keydown="errors.clear('Name')"> -->
+                <span class="help is-danger" v-if="errors.has('Name')" v-text="errors.get('Name')"></span>
             </div>
 
             <div class="control">
                 <label for="description" class="label">Project Description:</label>
-                <input type="text" id="description" name="description" class="input" v-model="description">
+                    <input type="text" id="Description" name="Description" class="input" v-model="description" />
+                <!-- APPROACH 1 -->
+                <!-- <input type="text" id="description" name="description" class="input" v-model="description" v-on:keydown="errors.clear('Description')"> -->
+                <span class="help is-danger" v-text="errors.get('Description')"></span>
             </div>
 
             <div class="control">
-                <button class="button is-primary" type="submit">Create</button>
+                <button class="button is-primary" type="submit" :disabled="errors.any()">Create</button>
             </div>
         </form>
 
