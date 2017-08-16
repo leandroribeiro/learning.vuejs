@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.3/css/bulma.min.css"> -->
+
+    <style media="screen">
+        body {
+            padding-top: 40px;
+        }
+    </style>
+    <title>Lesson 20 with .NET Core</title>
+</head>
+<body>
+
+    <div id="app" class="container">
+
+        <!-- list all projects -->
+
+
+        <form method="POST" action="/Home/Store" v-on:submit.prevent="onSubmit" v-on:keydown="form.errors.clear($event.target.name)">
+            <div class="control">
+                <label for="name" class="label">Project Name:</label>
+                <input type="text" id="Name" name="Name" class="input" v-model="form.name" />
+                <!-- APPROACH 1 -->
+                <!-- <input type="text" id="name" name="name" class="input" v-model="name" v-on:keydown="form.errors.clear('Name')"> -->
+                <span class="help is-danger" v-if="form.errors.has('Name')" v-text="form.errors.get('Name')"></span>
+            </div>
+
+            <div class="control">
+                <label for="description" class="label">Project Description:</label>
+                    <input type="text" id="Description" name="Description" class="input" v-model="form.description" />
+                <!-- APPROACH 1 -->
+                <!-- <input type="text" id="description" name="description" class="input" v-model="description" v-on:keydown="form.errors.clear('Description')"> -->
+                <span class="help is-danger" v-text="form.errors.get('Description')"></span>
+            </div>
+
+            <div class="control">
+                <button class="button is-primary" type="submit" :disabled="form.errors.any()">Create</button>
+            </div>
+        </form>
+
+    </div>
+
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/vue@2.1.3/dist/vue.js" charset="utf-8"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js" integrity="sha256-aXHOBRCjmgqoEhY6VBWs3Bc+E3447Iuywezt+nkgeZk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.3/vue.min.js" integrity="sha256-r+wmZoP04ZrX/3jL7lpfcXD/eWGByabfL8IIJ/NuGeA=" crossorigin="anonymous"></script>
+    <script src="~/js/app.js" asp-append-version="true"></script>
+
+</body>
+</html>
