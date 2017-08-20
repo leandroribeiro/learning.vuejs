@@ -45,16 +45,23 @@ class Form {
     }
 
     reset() {
-        for (let field in originalData) {
+        for (let field in this.originalData) {
             this[field] = '';
         }
     }
 
     data() {
-        return {
-            Name: this.name,
-            Description: this.description
-        };
+        // return {
+        //     Name: this.name,
+        //     Description: this.description
+        // };
+
+        let data = Object.assign({}, this);
+        
+        delete data.originalData;
+        delete data.errors;
+
+        return data;
     }
 
     submit(requestType, url) {
@@ -74,8 +81,12 @@ class Form {
     }
 
     onSuccess(response) {
+        console.log('sucess');
         alert(response.data.message);
+        console.log('clear erros');
         this.errors.clear();
+        console.log('clear form');
+        this.reset();
     }
 
     onFail(error) {
@@ -100,13 +111,6 @@ new Vue({
         onSubmit() {
             this.form.submit('post', '/home/store');
 
-        },
-
-        onSuccess(response) {
-            alert(response.data.message);
-
-            this.name = '';
-            this.description = '';
         }
 
     }
